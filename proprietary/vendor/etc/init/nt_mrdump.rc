@@ -1,0 +1,31 @@
+on post-fs-data
+    mkdir /data/vendor/dump_collect 0775 root system
+
+# post-fs setup mrdump property: persist.vendor.mrdump.type
+on post-fs
+    setprop vendor.mrdump.capture.done 0
+    exec_background - root system  -- /vendor/bin/nt_mrdump_wrapper output-get
+
+# minidump setting
+on property:persist.vendor.debug_policy=minidump && property:persist.vendor.debug_policy.ready=0
+    setprop persist.vendor.mrdump.type none
+    exec_background - root system  -- /vendor/bin/nt_mrdump_wrapper output-set ${persist.vendor.mrdump.type}
+    setprop persist.vendor.debug_policy.ready 1
+
+# fulldump setting
+on property:persist.vendor.debug_policy=fulldump && property:persist.vendor.mrdump.type=partition && property:persist.vendor.debug_policy.ready=0 && property:ro.build.type=userdebug
+    exec_background - root system  -- /vendor/bin/nt_mrdump_wrapper output-set partition
+    setprop persist.vendor.debug_policy.ready 1
+
+on property:persist.vendor.debug_policy=fulldump && property:persist.vendor.mrdump.type=usb && property:persist.vendor.debug_policy.ready=0
+    exec_background - root system  -- /vendor/bin/nt_mrdump_wrapper output-set usb
+    setprop persist.vendor.debug_policy.ready 1
+
+on property:persist.vendor.debug_policy=fulldump && property:persist.vendor.mrdump.type=internal-storage && property:persist.vendor.debug_policy.ready=0
+    exec_background - root system  -- /vendor/bin/nt_mrdump_wrapper output-set internal-storage
+    setprop persist.vendor.debug_policy.ready 1
+
+# setting for aee status
+on property:vendor.debug.mtk.aeev.exp.record=done && property:vendor.debug.mtk.aeev.ramdump=done && property:vendor.debug.mtk.aeev.rr_reported=Y && property:vendor.mrdump.capture.done=0
+    setprop vendor.mrdump.capture.done 1
+    exec_background - root system  -- /vendor/bin/nt_mrdump_collect

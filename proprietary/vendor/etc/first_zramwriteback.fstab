@@ -1,0 +1,3 @@
+# NOTHING ZramWriteback fstab file.
+#<src>                                                  <mnt_point>             <type>  <mnt_flags and options>                             <fs_mgr_flags>
+/dev/block/zram0                                        none                    swap    defaults                                            zramsize=100%,swapprio=32758,zram_backingdev_size=2147483648

@@ -1,0 +1,63 @@
+on property:sys.boot_completed=1 && property:ro.vendor.sys_zram_init=""
+    swapon_all /vendor/etc/first_zramwriteback.fstab
+
+on boot && property:persist.sys.zramwriteback_first_boot=*
+    setprop ro.vendor.sys_zram_init "1"
+
+on property:sys.boot_completed=1 && property:persist.sys.zramwriteback_first_boot=1
+    setprop persist.sys.zramwriteback_first_boot "0"
+    setprop persist.sys.zramwriteback_disk_init "0"
+    swapon_all /vendor/etc/first_zramwriteback.fstab
+
+
+on boot && property:persist.sys.zramwriteback_customized_size=""
+    mkdir /data/vendor/zram 0770 root system
+    setprop persist.sys.zramwriteback_disk_init "0"
+    swapon_all /data/vendor/zram/zramwriteback.fstab
+
+on property:persist.sys.zramwriteback_enable=true && property:persist.sys.zramwriteback_size=*
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -b ${persist.sys.zramwriteback_size}
+
+on property:persist.sys.zramwriteback_enable=true && property:persist.sys.zramwriteback_size=* && property:persist.sys.zram_size=*
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -s ${persist.sys.zram_size} -b ${persist.sys.zramwriteback_size}
+
+on property:persist.sys.zramwriteback_enable=true && property:persist.sys.zramwriteback_size=* && property:persist.sys.zram_size=* && property:persist.sys.zram_swap_prio=*
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -s ${persist.sys.zram_size} -p ${persist.sys.zram_swap_prio} -b ${persist.sys.zramwriteback_size}
+
+
+on boot && property:persist.sys.zramwriteback_customized_size=*
+    mkdir /data/vendor/zram 0770 root system
+    setprop persist.sys.zramwriteback_disk_init "0"
+    setprop persist.sys.zramwriteback_init_retry ""
+    swapon_all /data/vendor/zram/zramwriteback_customized.fstab
+    setprop persist.sys.zramwriteback_init_retry "0"
+
+on property:persist.sys.zramwriteback_enable=true && property:persist.sys.zramwriteback_customized_size=*
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -b ${persist.sys.zramwriteback_customized_size} -o zramwriteback_customized.fstab
+
+on property:persist.sys.zramwriteback_enable=true && property:persist.sys.zramwriteback_customized_size=* && property:persist.sys.zram_size=*
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -s ${persist.sys.zram_size} -b ${persist.sys.zramwriteback_customized_size} -o zramwriteback_customized.fstab
+
+on property:persist.sys.zramwriteback_enable=true && property:persist.sys.zramwriteback_customized_size=* && property:persist.sys.zram_size=* && property:persist.sys.zram_swap_prio=*
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -s ${persist.sys.zram_size} -p ${persist.sys.zram_swap_prio} -b ${persist.sys.zramwriteback_customized_size} -o zramwriteback_customized.fstab
+
+
+on property:persist.sys.zramwriteback_init_retry=0 && property:persist.sys.zramwriteback_disk_init=0
+    setprop persist.sys.zramwriteback_init_retry "1"
+    swapon_all /data/vendor/zram/zramwriteback_last_successful.fstab
+
+on property:persist.sys.zramwriteback_enable=true && property:persist.sys.zramwriteback_last_successful_size=*
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -b ${persist.sys.zramwriteback_last_successful_size} -o zramwriteback_last_successful.fstab
+
+on property:persist.sys.zramwriteback_enable=true && property:persist.sys.zramwriteback_last_successful_size=* && property:persist.sys.zram_size=*
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -s ${persist.sys.zram_size} -b ${persist.sys.zramwriteback_last_successful_size} -o zramwriteback_last_successful.fstab
+
+on property:persist.sys.zramwriteback_enable=true && property:persist.sys.zramwriteback_last_successful_size=* && property:persist.sys.zram_size=* && property:persist.sys.zram_swap_prio=*
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -s ${persist.sys.zram_size} -p ${persist.sys.zram_swap_prio} -b ${persist.sys.zramwriteback_last_successful_size} -o zramwriteback_last_successful.fstab
+
+on property:persist.sys.zramwriteback_enable=false
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -d zramwriteback.fstab
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -d zramwriteback_customized.fstab
+    exec - root system -- /vendor/bin/nt_gen_zramwriteback_fstab -d zramwriteback_last_successful.fstab
+
+

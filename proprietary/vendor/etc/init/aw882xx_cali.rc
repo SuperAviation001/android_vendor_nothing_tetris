@@ -1,0 +1,10 @@
+#TFT-2939 add for smartPa calibration spencer.chen 2024.03.14
+service vendor.aw882xx_cali.cali /vendor/bin/aw882xx_cali cali
+   class core
+   user root
+   group system
+   disabled
+   oneshot
+
+on property:sys.aw882xx_cali.cali=start
+   start vendor.aw882xx_cali.cali

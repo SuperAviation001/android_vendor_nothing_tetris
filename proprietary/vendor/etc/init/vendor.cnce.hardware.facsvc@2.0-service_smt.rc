@@ -1,0 +1,24 @@
+service facsvc-hal-2-0 /vendor/bin/hw/vendor.cnce.hardware.facsvc@2.0-service
+    class hal
+    user root
+    group root system camera cameraserver nfc bluetooth drmrpc
+
+on property:odm.sys.faccmd=*
+    exec - root shell -- /system/bin/faccmd
+
+#modify property to check if setup wizard sikped, for master clear flag
+on property:persist.sys.setupcomplete=*
+   setprop persist.vendor.setupcomplete ${persist.sys.setupcomplete}
+
+
+service vendor.high_freq_sensor_tool.sar /vendor/bin/high_freq_sensor_tool -c 83,4,1431655765,90522401
+    class core
+    user system
+    group system
+	disabled
+    
+on property:sys.high_freq_sensor_tool.sar=start
+     start vendor.high_freq_sensor_tool.sar
+
+on property:sys.high_freq_sensor_tool.sar=stop
+     stop vendor.high_freq_sensor_tool.sar

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <category name="lcd">
+        <!--This string define LCD test color and duration. The format is XXXX:YYYY;
+             XXXX means color value, YYYY means duration in million seconds.
+            The default color sequence is Triple color, black, white, gray,
+            red, green, blue -->
+        FFFF00FF:200;FF000000:2000;FFFFFFFF:2000;FF808080:2000;FFFF0000:200;FF00FF00:200;FF0000FF:200;
+    </category>
+    <category name="lcd_or_oled">
+        kinds:LCD;
+    </category>
+    <category name="lcailsensor">
+        kinds:MtkSQ502;
+    </category>
+    <category name="wifi">
+        <!--This string define WIFI test 5G. The format is XXXX:YYYY;
+             XXXX means 5G wifi , YYYY means needing test 5G wifi or not.
+            The default value is 1,means needing test 5G wifi -->
+        wifi_5g:1;
+    </category>
+    <category name="key">
+        <!--格式为 name:value   pms_shield_power表示PhoneWindowManager是否屏幕了Power按键功能，1-已屏蔽，0-没屏蔽-->
+        pms_shield_power:1;
+        <!-- Google键值-->
+        googlekeycode:84;
+    </category>
+    <category name="deviceinfo">
+        <!--invisible 表示不需要显示的信息项
+　　　　　　　googlekey　表示googlekey的获取方式　配置项有：fromdiagcommand：通过diag指令获取；fromprop:读取prop的值，“,”后面是需要读取的prop；fromtrustkernel：通过获取TrustKernel对象获取值
+　　　　　　　wifiaddr　表示wifi地址的获取方式　fromfactorymacaddr：通过framework接口获取，fromsystemdata：读取系统数据库获取地址
+　　　　　　　bluetoothaddr　表示蓝牙地址的获取方式　fromfactorymacaddr：通过framework接口获取，fromsystemdata：读取系统数据库获取地址
+            internalver：表示版本号是否需要拼接  value为需要拼接的prop字符串
+　　　　　　  accel：重力传感器  fromnode:通过读取节点的方式获取信息　fromvendor:表示通过getvendor方式获取（目前发现mtk平台的项目使用这个方式）fromname：getname的方式获取（高通平台使用）
+            psensor 距离传感器 fromnode:通过读取节点的方式获取信息　fromvendor:表示通过getvendor方式获取（目前发现mtk平台的项目使用这个方式）fromname：getname的方式获取（高通平台使用）
+            lsensor 光传感器 fromnode:通过读取节点的方式获取信息　fromvendor:表示通过getvendor方式获取（目前发现mtk平台的项目使用这个方式）fromname：getname的方式获取（高通平台使用）
+        -->
+        <!-- 新增P/N 资产编码asset code JD项目-->
+        invisible:Cid,LcdFlag,AESync,Dc,SimLock,AutoMmiSensor,FrontAuxCam,CamTof,Scanner,CustBuildVer,Meid,BatteryType2,HallCali,JoystickCali,IRISCali,ChannelId,CamWideAngleLens,CamTeleLens,CamIrisLens,WideAngleCam,EmmcCid,EmmcId,Fp,CamMacroLens,SpkCali;
+        wifiaddr:fromfactorymacaddr;
+        bluetoothaddr:fromfactorymacaddr;
+        accel:fromname;
+        psensor:fromname;
+        lsensor:fromname;
+        sarsensor:fromname;
+        dynamicSarSensor:all;
+        Widevinekey:fromdiagcommand;
+        userWifiMac:1;
+    </category>
+    <category name="storage_mfr_map">
+        0x000090:Hynix;
+        0x000011:Toshiba;
+        0x000015:Samsung;
+        0x000045:Sandisk;
+        0x0000fe:Micron;
+        0x000013:Micron;
+        0x000088:LongSys;
+        0x0000d6:LongSys;
+        0x0000f4:Baiwin;
+        0x000070:Kingston;
+    </category>
+    <category name="camera">
+        <!--This string define camera test. The format is XXXX:YYYY,ZZZZ;
+             cam_back_main 表示第几个摄像头  0 表示camera id 为0 ， lgit_s5kgm2sp 表示camera器件信息.
+             check_otp_status 表示opt状态检查  true 表示需要检查otp状态  -->
+        cam_back_main:0,0_jd_hi1336_union;
+        cam_front_main:1,1_jd_gc05a2_union;
+        cam_depth_lens:2,2_RVT1_gc02m0b_cxt,2_RVT2_sc202cs_holitech;
+        cam_macro_lens:3,3_SHD1_sc202cs_union,3_SHD2_gc02m1_seasons;
+    </category>
+
+    <category name="psensor">
+        <!--calibrated_manner 表示为几点校准，3 为三点校准，在CitPSensorCalibration.java中获取使用
+            check_cali_state:true;表示在psensor测试时检查校准文件
+            cali_file_path:/mnt/vendor/persist/sensors/registry/registry/stk3a5x_0_platform.ps.fac_cal;表示校准文件的地址
+        -->
+        calibrated_manner:3;
+        check_cali_state:true;
+        cali_file_path:/mnt/vendor/nvcfg/sensor/ps_cali.json;
+    </category>
+    <category name="fingerprint">
+        <!-- 配置参数表示，1.节点信息 2.厂商-->
+        vendor:ft9391sd|Focaltech,icnf7318cl|fpSensorExtensionSvc2;
+    </category>
+    <category name="sarsensor">
+        <!-- 配置参数表示，1.节点信息-->
+        sarsensor_id:65546;
+        channelID:0<!--,1,2-->;
+        top_bottom_test:true;
+        needCalibration:false;
+    </category>
+    <category name="mtksarsensor">
+        <!-- 配置参数表示，1.节点信息-->
+        sarsensor_id:65546;
+        channelID:0<!--,1,2-->;
+        top_bottom_test:true;
+        needCalibration:false;
+    </category>
+    <category name="light_sensor">
+        <!-- 配置参数表示，光流明值变化次数-->
+        test_count:1;
+        save_to_partition:1;
+        save_LCD_info_to_LSensor:0;
+        supplier_1_name:sensortek;
+        LCD_suppliers_name:mdss_dsi_tcl_ft8006s_fhd_vid,mdss_dsi_lcetron_icnl9911c_fhd_vid;
+        light_cal_key:stk3x1x_0_platform.als.fac_cal;
+        light_cal_full_path:/mnt/vendor/persist/sensors/registry/registry/stk3x1x_0_platform.als.fac_cal;
+        light_cal_key_2:sip3515_platform.als.fac_cal;
+        light_cal_full_path_2:/mnt/vendor/persist/sensors/registry/registry/sip3515_platform.als.fac_cal;
+        local_param_for_mmi2:4;
+    </category>
+
+    <category name="tptest">
+        <!-- 配置参数表示，1，节点信息   2，是否在读取结果的时候需要echo字符串  3，读取结果的节点路径或者调用的方法名  -->
+        tp_info:equick-ver|false|testGoodixRawDataTest;
+    </category>
+
+    <category name="scantest">
+        <!-- 配置参数表示，1，节点信息   2，是否预置值  3，读取结果的节点路径或者调用的方法名  -->
+        tp_info:2_jd_se4770_zebra|false|testGcScanTest;
+    </category>
+
+    <category name="rgbled">
+        <!-- 配置参数表示，打开led灯使用的方式-->
+        open_mode:rgbCtrl;
+        red_led:/sys/class/leds/red/brightness;
+        green_led:/sys/class/leds/green/brightness;
+        blue_led:/sys/class/leds/blue/brightness;
+        red_led_sprd:/sys/class/leds/sc27xx:red/brightness;
+        green_led_sprd:/sys/class/leds/sc27xx:green/brightness;
+        blue_led_sprd:/sys/class/leds/sc27xx:blue/brightness;
+    </category>
+    <category name="citservice">
+        <!--
+        配置参数表示，高通平台在user版本根据dc站位状态启动citservice ,dc_flag值为1的时候不需要开启cit服务
+        MTK平台在user版本根据master_clear_flag站位开启citservice,master_clear_flag值为1的时候不需要开启cit服务
+        MTK平台不需要添加此配置
+        -->
+        start_service:dc;
+    </category>
+    <category name="runlog">
+        <!--
+        using_build_type表示要在哪个版本抓取log，using_build_type:smt|ud|user表示在smt版本、UD版本、user版本都开启log。
+        start_action表示开启logger的广播action。(qcom Q版本为com.ontim.cit.AUTO_START_RECORD;)
+        stop_action表示收集logger的广播action。(qcom Q版本为com.ontim.cit.AUTO_COLLECT;)
+        -->
+        using_build_type:smt;
+        start_action:com.ontim.cit.AUTO_START_RECORD;
+        stop_action:com.ontim.cit.AUTO_COLLECT;
+    </category>
+    <category name="autoShutdown">
+        <!-- 配置参数含义：popupWindowAfterReset: 需不需要弹框; shutdown: 需不需要立即关机 -->
+        popupWindowAfterReset:false;
+        shutdown:false;
+    </category>
+    <category name="assistmmi">
+        <!--格式为 name:value
+        value表示需要显示辅助mmi测试按钮-->
+        isDisplayAssist:false;
+    </category>
+    <category name="sdmmi">
+        <!--格式为 name:value
+        value表示需要显示sd mmi测试按钮-->
+        isDisplaySdMMI:true;
+    </category>
+    <category name="check_sys_hwinfo">
+        <!--格式为 name: 器件名称
+        value:器件信息  以‘，’分割-->
+        <!--cam_macro_lens_mfr:3_SHD1_sc202cs_union,3_SHD2_gc02m1_seasons;-->
+        <!--cam_depth_lens_mfr:2_RVT1_gc02m0b_cxt,2_RVT2_sc202cs_holitech;-->
+        cam_back_lens_mfr:imx882_mipi_raw,imx882txd_mipi_raw ;
+        cam_front_lens_mfr:gc16b3c_mipi_raw,gc16b3ctxd_mipi_raw;
+        <!--battery_mfr:ATL436186_020H_3780mAh;--><!--,for temp-->
+        <!--charger_ic_mfr:PMI632;-->
+        <!--nfc_mfr:tms-nfc-thn31f;-->
+        <!--fp_mfr:ICNF7318CL,FT9391SD;-->
+        
+        speaker_mfr:aw882xx_smartpa;
+    </category>
+    <category name="checkDeviceinfo">
+        <!-- 配置参数表示，checkDeviceCfg 表示需要检查的器件和节点 -->
+        checkDeviceCfg:FP|/sys/hwinfo/FP_MFR,TP|/sys/hwinfo/TP_MFR,LCD|/sys/hwinfo/LCD_MFR,Battery|/sys/hwinfo/BATTARY_MFR,
+                       Charge_IC|/sys/hwinfo/CHARGER_IC_MFR,NFC|/sys/hwinfo/NFC_MFR,Camera_main|/sys/hwinfo/BACK_CAM_MFR,
+                       Cmaera_aux|/sys/hwinfo/BACKAUX_CAM_MFR,Camera_sux2|/sys/hwinfo/BACKAUX2_CAM_MFR,
+                       Camera_front|/sys/hwinfo/FRONT_CAM_MFR;
+    </category>
+    <category name="WidevineKey">
+        <!-- 配置参数表示，接收广播BOOT_COMPLETED，验证securityLevel为L1
+             true:  不需要验证
+             false: 需要验证 -->
+        testFlag:true;
+    </category>
+    <category name="sim">
+        <!--This string define third sim card and nfc. The format is XXXX:YYYY,ZZZ,FFF;
+             XXXX means third sim card , YYYY means needing test third sim card or not.
+             XXXX means nfc , YYYY 代表是否检查NFCsim,ZZZ 代表nfc sim 卡的数量,FFF参数表示是否要检查sim卡标识-->
+        nfc_sim:false,2,false;
+        nfc_sim_path:vendor/bin/tdt;
+    </category>
+    <category name="batteryCharge">
+        quick_charge:true;
+        get_battery_current:cat /sys/class/power_supply/battery/current_now;
+        <!--charging_protocol:HVDCP_3,PD-->
+    </category>
+    <category name="AudioTest">
+        <!-- 配置参数表示:
+              1.SpeakerNumber: speaker 的数量
+              2.OpenTopSpeakerPath:打开顶部speaker 的指令
+              3.CloseTopSpeakerPath:关闭顶部speaker 的指令
+              4.OpenDownSpeakerPath:打开底部speaker 的指令
+              5.CloseDownSpeakerPath:关闭底部speaker 的指令
+              6.Audio_Channel_Type：音频测试通道类型
+              7.Main_Mic_Record:主Mic测试通道类型
+              8.Aux_Mic_Record:副Mic测试通道类型
+         -->
+        Audio_Channel_Type:bypass_speaker=true,bypass_speaker=false;
+        Main_Mic_Record:SET_MIC_CHOOSE=1,SET_MIC_CHOOSE=0;
+        Aux_Mic_Record:SET_MIC_CHOOSE=2,SET_MIC_CHOOSE=0;
+        Receiver_Channel_Type:bypass_receiver=true,bypass_receiver=false;
+    </category>
+    <category name="mic">
+        <!--preMicParams[1]表示主麦克参数
+        postMicParams表示副麦克参数
+        micType的第一参数表示主麦克参数，第二参数表示副麦克参数
+        micType:test_in_stream_route=0x80000004,test_in_stream_route=0x80000080;
+        -->
+        preMicParams:SET_MIC_CHOOSE=1,SET_MIC_CHOOSE=0;
+        postMicParams:SET_MIC_CHOOSE=2,SET_MIC_CHOOSE=0;
+    </category>
+<!--    <category name="DynamicTestItem">-->
+<!--        &lt;!&ndash; 配置参数表示，items表示需要动态测试的sku 32表示sar sensor id ，33表示nfc id，-->
+<!--            property 表示区分测试方式，使用读取prop属性的方式决定是否测试-->
+<!--            ro.boot.hardware.sku 表示需要读取prop的属性-->
+<!--            XT2239-7 表示sku &ndash;&gt;-->
+<!--        items:27|property|ro.vendor.hw_sku|0001,46|property|ro.vendor.hw_sku|0001;-->
+<!--    </category>-->
+    <category name="HardwareVerBoardID">
+        EVT:0;
+        DVT:1;
+        PVT:2;
+        MP:3;
+    </category>
+    <category name="efusestate">
+        efusestate:ro.boot.efuse,1;
+    </category>
+    <category name="rpmbstate">
+        rpmbstate:ro.boot.rpmb,1;
+    </category>
+        <category name="Haccelsensor">
+        <!-- 修改accelsensor门限-->
+        xy_min:-0.3;
+        xy_max:0.3;
+    </category>
+    <category name="accelsensor">
+        X_MIN_VALUE:-5.88;
+        X_MAX_VALUE:-3.92;
+        Y_MIN_VALUE:3.92;
+        Y_MAX_VALUE:5.88;
+        Z_MIN_VALUE:5.201;
+        Z_MAX_VALUE:8.667;
+    </category>
+    <category name="backled">
+        led_path:echo %s > /sys/class/leds/aw20036_led/effect;
+    </category>
+    <category name="bluetooth">
+        action_1:android.bluetooth.device.action.FOUND;
+        action_2:android.bluetooth.device.action.NAME_CHANGED;
+        action_start_change:android.bluetooth.adapter.action.STATE_CHANGED;
+    </category>
+<!--    <category name="typec_path">-->
+<!--        &lt;!&ndash;格式为 name:value-->
+<!--        value表示电池正反插的节点&ndash;&gt;-->
+<!--        node:type_cc_status;-->
+<!--    </category>-->
+    <category name="dualbuttarybase">
+        typec_path:/sys/hwinfo/TYPEC_CC_STATUS;
+        get_battery1_level:cat /sys/class/power_supply/battery/capacity;
+        get_battery2_level:cat /sys/class/power_supply/battery2/capacity;
+        get_battery1_vol:cat /sys/class/power_supply/battery/voltage_now;
+        get_battery2_vol:cat /sys/class/power_supply/battery2/voltage_now;
+    </category>
+    <category name="gamegoystick">
+       hald_area:0.5f;
+    </category>
+    <category name="gsensor">
+        min_value:-0.1;
+        max_value:0.1;
+    </category>
+    <category name="gsensorcali">
+        <!--        add calibrate for CitHelperGSensorCaliReceiver in Mtk-->
+        calibrate:doEmSensorCalibration;
+    </category>
+    <category name="healthsensorcheck">
+        heath_sensor_node:/sys/bus/i2c/drivers/max_health/7-0055/led;
+    </category>
+    <category name="log">
+        heath_sensor_node:/sys/bus/i2c/drivers/max_health/7-0055/led;
+    </category>
+    <category name="micamplitude">
+<!--        Set criteria value to 2000 by defualt-->
+        default_criteria:2000;
+    </category>
+    <category name="Mtkpsensor">
+        <!--calibrate表示Psensor校准，EmSensor表示psensor的校准方法，在CitProximitySensor.java中获取使用
+            calibrated_manner 表示为几点校准，3 为三点校准，在CitPSensorCalibration.java中获取使用
+            threshold_nocover_near 表示校准无遮挡和近距离的差值，95 为无遮挡和近距离校准值的差值要大于95,在src/com/ontim/vendor/mediatek/CitHelperPSensorCaliReceiver.java中获取使用
+            threshold_nocover_far 表示校准无遮挡和远距离的差值，30 为无遮挡和远距离校准值的差值要大于30,在src/com/ontim/vendor/mediatek/CitHelperPSensorCaliReceiver.java中获取使用
+            threshold_near_far 表示校准近距离和远距离的差值，30 为近距离和远距离校准值的差值要大于30,在src/com/ontim/vendor/mediatek/CitHelperPSensorCaliReceiver.java中获取使用
+            nocover_noise_max 表示无遮挡的最大阀值，600为门限值，大于600表示数据异常,在src/com/ontim/vendor/mediatek/CitHelperPSensorCaliReceiver.java中获取使用
+            nocover_noise_min 表示无遮挡的底噪最小阀值，10为门限值，小于10表示数据异常,在src/com/ontim/vendor/mediatek/CitHelperPSensorCaliReceiver.java中获取使用-->
+        calibrate:EmSensor;
+        calibrated_manner:3;
+        threshold_nocover_near:150;
+        threshold_nocover_far:30;
+        threshold_near_far:30;
+        nocover_noise_max:1000;
+        nocover_noise_min:10;
+        check_cali_state:true;
+        cali_file_path:/mnt/vendor/nvcfg/sensor/ps_cali.json;
+    </category>
+    <category name="UsbOtg">
+        readWriteFile:false;
+    </category>
+    <category name="virbrationPath">
+    <!-- 双振动测试的节点配置（默认是游戏机的节点配置）-->
+    virbration_path:/mnt/vendor/persist/haptic/cali_data;
+    <!-- 读取振动强度节点-->
+    virbration_strength_path:proc/haptic/gpp;
+    <!--单振动校准，第一个参数是校准节点(false 表示不需要校准，只需要检测)，第二个参数是默认f0值，第三个参数是默认r0值-->
+    virbrator_cali_data:true,/proc/haptic/f0,/proc/haptic/lra_resistance;
+    vib_F0_threshold:2250,2450;
+    vib_R0_threshold:18000,28000;
+    vib_strength_threshold:8000,16000;
+    </category>
+</configuration>
+

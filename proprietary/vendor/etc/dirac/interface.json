@@ -1,0 +1,315 @@
+{
+ "archiveMetaData": {},
+ "author": "gustav.nordblad@dirac.com",
+ "configurations": [
+  {
+   "name": "EXT_4",
+   "numInputs": 2,
+   "numOutputs": 2,
+   "parameters": [],
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 1
+   },
+   "signalChainMetaData": {
+    "OutputType": {
+     "stringValue": "headset"
+    },
+    "StreamType": {
+     "stringValue": "normal"
+    },
+    "bypass_gain_db": {
+     "stringValue": "0"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "1"
+    },
+    "group_id": {
+     "stringValue": "1"
+    }
+   }
+  },
+  {
+   "name": "EXT_1",
+   "numInputs": 2,
+   "numOutputs": 2,
+   "parameters": [],
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 1
+   },
+   "signalChainMetaData": {
+    "OutputType": {
+     "stringValue": "headset"
+    },
+    "StreamType": {
+     "stringValue": "normal"
+    },
+    "bypass_gain_db": {
+     "stringValue": "0"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "1"
+    },
+    "group_id": {
+     "stringValue": "1"
+    }
+   }
+  },
+  {
+   "name": "MOVIE",
+   "numInputs": 2,
+   "numOutputs": 2,
+   "parameters": [
+    {
+     "default": 10,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 5
+     },
+     "max": 16,
+     "min": 0,
+     "name": "Volume Control",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": "step"
+    }
+   ],
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 1
+   },
+   "signalChainMetaData": {
+    "OutputType": {
+     "stringValue": "speaker"
+    },
+    "StreamType": {
+     "stringValue": "normal"
+    },
+    "bypass_gain_db": {
+     "stringValue": "0"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "1"
+    },
+    "group_id": {
+     "stringValue": "0"
+    }
+   }
+  },
+  {
+   "name": "MUSIC",
+   "numInputs": 2,
+   "numOutputs": 2,
+   "parameters": [
+    {
+     "default": 10,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 5
+     },
+     "max": 16,
+     "min": 0,
+     "name": "Volume Control",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": "step"
+    }
+   ],
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 1
+   },
+   "signalChainMetaData": {
+    "OutputType": {
+     "stringValue": "speaker"
+    },
+    "StreamType": {
+     "stringValue": "normal"
+    },
+    "bypass_gain_db": {
+     "stringValue": "0"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "1"
+    },
+    "group_id": {
+     "stringValue": "0"
+    }
+   }
+  },
+  {
+   "name": "GAME",
+   "numInputs": 2,
+   "numOutputs": 2,
+   "parameters": [
+    {
+     "default": 10,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 5
+     },
+     "max": 16,
+     "min": 0,
+     "name": "Volume Control",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": "step"
+    }
+   ],
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 1
+   },
+   "signalChainMetaData": {
+    "OutputType": {
+     "stringValue": "speaker"
+    },
+    "StreamType": {
+     "stringValue": "normal"
+    },
+    "bypass_gain_db": {
+     "stringValue": "0"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "1"
+    },
+    "group_id": {
+     "stringValue": "0"
+    }
+   }
+  },
+  {
+   "name": "EXT_3",
+   "numInputs": 2,
+   "numOutputs": 2,
+   "parameters": [],
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 1
+   },
+   "signalChainMetaData": {
+    "OutputType": {
+     "stringValue": "headset"
+    },
+    "StreamType": {
+     "stringValue": "normal"
+    },
+    "bypass_gain_db": {
+     "stringValue": "0"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "1"
+    },
+    "group_id": {
+     "stringValue": "1"
+    }
+   }
+  },
+  {
+   "name": "SPEECH",
+   "numInputs": 2,
+   "numOutputs": 2,
+   "parameters": [
+    {
+     "default": 10,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 5
+     },
+     "max": 16,
+     "min": 0,
+     "name": "Volume Control",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": "step"
+    }
+   ],
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 1
+   },
+   "signalChainMetaData": {
+    "OutputType": {
+     "stringValue": "speaker"
+    },
+    "StreamType": {
+     "stringValue": "normal"
+    },
+    "bypass_gain_db": {
+     "stringValue": "0"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "1"
+    },
+    "group_id": {
+     "stringValue": "0"
+    }
+   }
+  },
+  {
+   "name": "EXT_2",
+   "numInputs": 2,
+   "numOutputs": 2,
+   "parameters": [],
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 1
+   },
+   "signalChainMetaData": {
+    "OutputType": {
+     "stringValue": "headset"
+    },
+    "StreamType": {
+     "stringValue": "normal"
+    },
+    "bypass_gain_db": {
+     "stringValue": "0"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "1"
+    },
+    "group_id": {
+     "stringValue": "1"
+    }
+   }
+  }
+ ],
+ "creationTime": "2024-05-10T11:12:28Z",
+ "creator": "Flow 4.3.1",
+ "creatorVersion": {
+  "majorVersion": 4,
+  "minorVersion": 3,
+  "patchVersion": 1
+ },
+ "description": "",
+ "interfaceVersion": {
+  "majorVersion": 1,
+  "minorVersion": 1,
+  "patchVersion": 0
+ },
+ "manufacturer": "Nothing",
+ "processorLibraryVersion": {
+  "majorVersion": 5,
+  "minorVersion": 0,
+  "patchVersion": 0
+ },
+ "project": "P23114",
+ "uuid": "714fabeb-ec39-49f1-9a15-87c2feef5712"
+}

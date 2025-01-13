@@ -1,0 +1,43 @@
+#TFT-2228 add for A+G sensor calibration spencer.chen 2023.10.13
+service vendor.high_freq_sensor_tool.accel /vendor/bin/high_freq_sensor_tool -c 1,3
+   class core
+   user system
+   group system
+   disabled
+   oneshot
+
+service vendor.high_freq_sensor_tool.gyro /vendor/bin/high_freq_sensor_tool -c 4,3
+   class core
+   user system
+   group system
+   disabled
+   oneshot
+
+service vendor.high_freq_sensor_tool.accel.stop /vendor/bin/high_freq_sensor_tool -c 1,4
+   class core
+   user system
+   group system
+   disabled
+   oneshot
+
+service vendor.high_freq_sensor_tool.gyro.stop /vendor/bin/high_freq_sensor_tool -c 4,4
+   class core
+   user system
+   group system
+   disabled
+   oneshot
+
+on property:sys.high_freq_sensor_tool.accel=start
+   setprop vendor.sensor.cali.accel "running"
+   start vendor.high_freq_sensor_tool.accel
+
+on property:sys.high_freq_sensor_tool.accel=stop
+   stop vendor.high_freq_sensor_tool.accel.stop
+
+
+on property:sys.high_freq_sensor_tool.gyro=start
+   setprop vendor.sensor.cali.gyro "running"
+   start vendor.high_freq_sensor_tool.gyro
+
+on property:sys.high_freq_sensor_tool.gyro=stop
+   stop vendor.high_freq_sensor_tool.gyro.stop
