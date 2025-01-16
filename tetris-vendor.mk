@@ -22,10 +22,6 @@ PRODUCT_COPY_FILES += \
     vendor/nothing/tetris/proprietary/odm/etc/manufacture/mmi/test_items.xml:$(TARGET_COPY_OUT_ODM)/etc/manufacture/mmi/test_items.xml \
     vendor/nothing/tetris/proprietary/odm/etc/sysconfig/sku_EEA/eea_v2_search_chrome.xml:$(TARGET_COPY_OUT_ODM)/etc/sysconfig/sku_EEA/eea_v2_search_chrome.xml \
     vendor/nothing/tetris/proprietary/odm/etc/sysconfig/sku_IND/dse_choice_screen.xml:$(TARGET_COPY_OUT_ODM)/etc/sysconfig/sku_IND/dse_choice_screen.xml \
-    vendor/nothing/tetris/proprietary/odm/etc/vintf/manifest_dsds.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest_dsds.xml \
-    vendor/nothing/tetris/proprietary/odm/etc/vintf/manifest_qsqs.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest_qsqs.xml \
-    vendor/nothing/tetris/proprietary/odm/etc/vintf/manifest_ss.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest_ss.xml \
-    vendor/nothing/tetris/proprietary/odm/etc/vintf/manifest_tsts.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest_tsts.xml \
     vendor/nothing/tetris/proprietary/odm/overlayfs_origin/product/media/bootanimation.zip:$(TARGET_COPY_OUT_ODM)/overlayfs_origin/product/media/bootanimation.zip \
     vendor/nothing/tetris/proprietary/odm/overlayfs_origin/system_ext/noth/priv-app/FT_Terminal_Test_Tetris/Conf_MultipleTest_0x48.ini:$(TARGET_COPY_OUT_ODM)/overlayfs_origin/system_ext/noth/priv-app/FT_Terminal_Test_Tetris/Conf_MultipleTest_0x48.ini \
     vendor/nothing/tetris/proprietary/system_ext/etc/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/a2dp_audio_policy_configuration.xml \
@@ -287,7 +283,6 @@ PRODUCT_COPY_FILES += \
     vendor/nothing/tetris/proprietary/vendor/bin/hw/android.hardware.gnss-service.mediatek:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.gnss-service.mediatek \
     vendor/nothing/tetris/proprietary/vendor/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek.mt6878:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek.mt6878 \
     vendor/nothing/tetris/proprietary/vendor/bin/hw/android.hardware.graphics.composer@3.2-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.graphics.composer@3.2-service \
-    vendor/nothing/tetris/proprietary/vendor/bin/hw/android.hardware.health-service.example:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.health-service.example \
     vendor/nothing/tetris/proprietary/vendor/bin/hw/android.hardware.lights-service.mediatek:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.lights-service.mediatek \
     vendor/nothing/tetris/proprietary/vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.media.c2@1.2-mediatek-64b \
     vendor/nothing/tetris/proprietary/vendor/bin/hw/android.hardware.memtrack-service.mediatek:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.memtrack-service.mediatek \
@@ -600,7 +595,6 @@ PRODUCT_COPY_FILES += \
     vendor/nothing/tetris/proprietary/vendor/etc/init/android.hardware.gnss-service.mediatek.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gnss-service.mediatek.rc \
     vendor/nothing/tetris/proprietary/vendor/etc/init/android.hardware.graphics.allocator-V2-service-mediatek.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.allocator-V2-service-mediatek.rc \
     vendor/nothing/tetris/proprietary/vendor/etc/init/android.hardware.graphics.composer@3.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.composer@3.2-service.rc \
-    vendor/nothing/tetris/proprietary/vendor/etc/init/android.hardware.health-service.example.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.health-service.example.rc \
     vendor/nothing/tetris/proprietary/vendor/etc/init/android.hardware.media.c2@1.2-mediatek-64b.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.c2@1.2-mediatek-64b.rc \
     vendor/nothing/tetris/proprietary/vendor/etc/init/android.hardware.neuralnetworks-shim-service-mtk.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.neuralnetworks-shim-service-mtk.rc \
     vendor/nothing/tetris/proprietary/vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc \
@@ -3101,7 +3095,6 @@ PRODUCT_PACKAGES += \
     android.hardware.cas-service.xml \
     android.hardware.drm-service.clearkey.xml \
     android.hardware.gatekeeper-service.trustonic.xml \
-    android.hardware.health-service.example.xml \
     android.hardware.neuralnetworks-shim-service-mtk.xml \
     android.hardware.security.keymint-service.trustonic.xml \
     android.hardware.security.secureclock-service.trustonic.xml \
