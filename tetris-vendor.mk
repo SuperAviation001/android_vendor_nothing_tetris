@@ -1561,7 +1561,6 @@ PRODUCT_COPY_FILES += \
     vendor/nothing/tetris/proprietary/vendor/etc/richtapresources/weak/texture_tick.he:$(TARGET_COPY_OUT_VENDOR)/etc/richtapresources/weak/texture_tick.he \
     vendor/nothing/tetris/proprietary/vendor/etc/richtapresources/weak/thud.he:$(TARGET_COPY_OUT_VENDOR)/etc/richtapresources/weak/thud.he \
     vendor/nothing/tetris/proprietary/vendor/etc/richtapresources/weak/tick.he:$(TARGET_COPY_OUT_VENDOR)/etc/richtapresources/weak/tick.he \
-    vendor/nothing/tetris/proprietary/vendor/etc/samsung,s6e8fc3x02_pq.xml:$(TARGET_COPY_OUT_VENDOR)/etc/samsung,s6e8fc3x02_pq.xml \
     vendor/nothing/tetris/proprietary/vendor/etc/sar/sarconfig_europe.json:$(TARGET_COPY_OUT_VENDOR)/etc/sar/sarconfig_europe.json \
     vendor/nothing/tetris/proprietary/vendor/etc/sar/sarconfig_india.json:$(TARGET_COPY_OUT_VENDOR)/etc/sar/sarconfig_india.json \
     vendor/nothing/tetris/proprietary/vendor/etc/seccomp_policy/android.hardware.media.c2@1.2-extended-seccomp-policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/android.hardware.media.c2@1.2-extended-seccomp-policy \
